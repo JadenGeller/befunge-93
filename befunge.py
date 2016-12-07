@@ -5,8 +5,6 @@ import random
 import sys
 from math import floor
 import six
-import inputbox
-
 
 class Field(object):
 	def __init__(self, code):
@@ -232,12 +230,12 @@ def run_code():
 				the_field.put_char(pop(stack), pop(stack), pop(stack))
 			elif the_field.current_char() == "&":
 				try:
-					stack.append(int(inputbox.ask(screen, "Put a number in the stack")))
+					stack.append(int(sys.stdin.read(1)))
 				except Exception:
 					continue
 			elif the_field.current_char() == "~":
 				if not instring:
-					instring = list(inputbox.ask(screen, "Put a string to the stack"))
+					instring = list(sys.stdin.read(1))
 					instring.append(-1)
 					instring = instring[::-1]
 					stack.append(ord(instring.pop()))
