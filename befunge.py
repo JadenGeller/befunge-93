@@ -235,10 +235,7 @@ def run_code():
 					continue
 			elif the_field.current_char() == "~":
 				if not instring:
-					instring = list(sys.stdin.read(1))
-					instring.append(-1)
-					instring = instring[::-1]
-					stack.append(ord(instring.pop()))
+					stack.append(ord(sys.stdin.read(1)))
 				else:
 					if instring[len(instring)-1] == -1:
 						stack.append(int(instring.pop()))
