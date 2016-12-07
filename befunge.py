@@ -5,6 +5,9 @@ import random
 import sys
 from math import floor
 import six
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class Field(object):
 	def __init__(self, code):
@@ -68,7 +71,7 @@ def chhr(tal):
 
 
 def render_code(code):
-	codefont = pygame.font.Font("./font/Inconsolata.otf", 24)
+	codefont = pygame.font.Font(dir_path + "/font/Inconsolata.otf", 24)
 	for y, c in enumerate(code):
 			for x, char in enumerate(c):
 				if char in "0123456789":
@@ -146,7 +149,7 @@ def run_code():
 	outsurf.fill((0, 0, 0, 100))
 	stacksurf.fill((0, 0, 0, 100))
 	cursor.fill((255, 255, 255, 130))
-	stackfont = pygame.font.Font("./font/Inconsolata.otf", 18)
+	stackfont = pygame.font.Font(dir_path + "/font/Inconsolata.otf", 18)
 	outcount = 0
 	outline = 0
 	instring = ""
